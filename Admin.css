@@ -1,0 +1,486 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.dashboard {
+  max-width: 1400px;
+  width: 100%;
+}
+
+.header {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 32px;
+  color: #333;
+}
+
+.header p {
+  font-size: 18px;
+  color: #888;
+}
+
+.welcome-section {
+  display: flex;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  align-items: center;
+  gap: 30px;
+}
+
+.welcome-text h2 {
+  font-size: 28px;
+  color: #0073e6;
+  margin-bottom: 10px;
+}
+
+.welcome-text p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.get-started {
+  background: #0073e6;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.welcome-image img {
+  width: 250px;
+  height: auto;
+}
+
+/* New Button Section */
+.button-section {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px; 
+  margin-bottom: 20px;
+}
+
+.interface-button {
+  background-color: #0073e6;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.interface-button:hover {
+  background-color: #005bb5;
+}
+
+.stats-section {
+  display: flex;
+  gap: 40px;
+}
+
+.stat-card {
+  flex: 1;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.stat-card p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.stat-card h3 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.container {
+  display: flex;
+}
+
+.main {
+  position: relative;
+  padding: 20px;
+  width: 100%;
+}
+
+.main-top {
+  display: flex;
+  width: 100%;
+}
+
+.main-top i {
+  position: absolute;
+  right: 0;
+  margin: 10px 30px;
+  color: rgb(110, 109, 109);
+  cursor: pointer;
+}
+
+.main-containers {
+  display: flex;
+  margin-top: -10px;
+}
+
+.main-containers .card {
+  width: 25%;
+  margin: 10px;
+  height: 100px;
+  background: #fff;
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.main-containers .card h3 {
+  margin: 10px;
+  text-transform: capitalize;
+}
+
+.main-containers .card p {
+  font-size: 12px;
+}
+
+.main-containers .card button {
+  background: orangered;
+  color: #fff;
+  padding: 7px 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.main-containers .card button:hover {
+  background: rgba(223, 70, 15, 0.856);
+}
+
+.main-containers .card i {
+  font-size: 22px;
+  padding: 10px;
+}
+
+/* Module */
+.main-admin-module {
+  display: none;
+}
+
+.module-box {
+  width: 100%;
+  height: 520px;
+  padding: 10px 10px 30px 10px;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 10px;
+  position: relative;
+}
+
+.upload-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.main-admin-module {
+  position: relative;
+}
+
+.next-button {
+  position: fixed; /* Fixes position in viewport */
+  bottom: 130px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 280px;
+  z-index: 10;
+}
+
+.page-indicator {
+  position: fixed;
+  margin-right: 280px;
+  bottom: 100px;
+  right: 10px;
+  margin-left: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+.next-button:hover {
+  background-color: #0056b3;
+}
+
+.module-box-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+}
+
+.upload-header-container,
+.upload-about-container,
+.upload-learn-more-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #000000;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  height: 180px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  margin-right: 10px;
+}
+
+.bulletin-board-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #000000;
+  border-radius: 8px;
+  height: 180px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  margin-right: 10px;
+}
+
+.upload-header-container:hover,
+.upload-about-container:hover,
+.upload-learn-more-container:hover,
+.bulletin-board-container:hover {
+  border-color: #ff0000;
+}
+
+.upload-header-container img,
+.upload-about-container img,
+.upload-learn-more-container img,
+.bulletin-board-container img {
+  display: block;
+  margin: 0 auto;
+  width: 80px;
+}
+
+.upload-header-container p,
+.upload-about-container p,
+.upload-learn-more-container p,
+.bulletin-board-container p {
+  margin: 0;
+  text-align: center;
+  color: #666666;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.center-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.contact-info-container {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.contact-item {
+  flex: 1;
+  min-width: 200px;
+}
+
+.contact-item label {
+  margin-bottom: 5px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.contact-item input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.contact-item button {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 18px;
+}
+
+.contact-item button:hover {
+  background-color: #0056b3;
+}
+
+/* Page 2 Content */
+#page2Content {
+  display: fixed;
+  height: 520px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+#page2Content h2 {
+  font-size: 24px;
+  color: #333333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#page2Content p {
+  font-size: 16px;
+  color: #666666;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th, .table-container td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Action Buttons Styles */
+
+.actions button {
+  padding: 6px 10px;  /* Smaller padding */
+  background-color: #0056b3;
+  color: white;
+  font-size: 12px;  /* Smaller font size */
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;  /* Slightly reduced margin */
+}
+
+.actions button:hover {
+  background-color: #004085;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.actions button:active {
+  background-color: #003366;
+  transform: scale(0.98);
+}
+
+.actions button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5);
+}
+
+.actions button span {
+  margin-right: 4px;  /* Reduced space between icon and text */
+}
+
+.actions button .icon {
+  font-size: 16px;  /* Smaller icon size */
+  margin-right: 6px;  /* Space between icon and text */
+}
+
+
+
+
+.animation-addition {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end; /* Aligns content to the right */
+  align-items: flex-start;  /* Aligns items at the top (optional) */
+}
+
+.animation-addition input, 
+.animation-addition select,
+.animation-addition button {
+  padding: 8px;
+  width: 280px;
+  font-size: 16px;
+  height: 38px;
+  margin-bottom: 40px;
+}
+
+.animation-addition button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  height: 38px;
+  border-radius: 5px;
+}
+
+.animation-addition button:hover {
+  background-color: #0056b3;
+}
+
+.filterCategory select {
+  padding: 6px 12px;
+  border: 1px solid #0073e6;
+  border-radius: 5px;
+  background-color: #f0f8ff;
+  color: #333;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.filterCategory select:hover {
+  background-color: #e0f0ff;
+  cursor: pointer;
+}
