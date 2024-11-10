@@ -58,50 +58,47 @@ function toggleMainModule(moduleId) {
 function addAnimation() {
     const animationName = document.getElementById("animationNameInput").value;
     const categoryCount = document.getElementById("categoryCountInput").value;
+    const animationVideoInput = document.getElementById("animationVideoInput");
 
-    if (animationName && categoryCount !== '') {
+    if (animationName && categoryCount !== '' && animationVideoInput.files.length > 0) {
         const tableBody = document.querySelector(".table-container tbody");
 
         const newRow = document.createElement("tr");
 
-        // Category name cell (animation name)
+        // Category name cell
         const nameCell = document.createElement("td");
         nameCell.textContent = categoryCount;
 
-        // Category count cell (animation count)
+        // Animation name cell
         const countCell = document.createElement("td");
         countCell.textContent = animationName;
 
+        // Video file name cell
+        const videoCell = document.createElement("td");
+        const fileName = animationVideoInput.files[0].name;
+        const fileNameText = document.createTextNode(fileName);
+        videoCell.appendChild(fileNameText);
+
+        // Actions cell
         const actionsCell = document.createElement("td");
         actionsCell.classList.add("actions");
 
         // Edit button
         const editButton = document.createElement("button");
         editButton.title = "Edit";
-        const editIcon = document.createElement("span");
-        editIcon.classList.add("icon");
-        editIcon.innerHTML = "&#9998;";
-        const editText = document.createElement("span");
-        editText.innerHTML = "Edit";
-        editButton.appendChild(editIcon);
-        editButton.appendChild(editText);
+        editButton.innerHTML = "&#9998; Edit";
         actionsCell.appendChild(editButton);
 
         // Delete button
         const deleteButton = document.createElement("button");
         deleteButton.title = "Delete";
-        const deleteIcon = document.createElement("span");
-        deleteIcon.classList.add("icon");
-        deleteIcon.innerHTML = "&#128465;";
-        const deleteText = document.createElement("span");
-        deleteText.innerHTML = "Delete";
-        deleteButton.appendChild(deleteIcon);
-        deleteButton.appendChild(deleteText);
+        deleteButton.innerHTML = "&#128465; Delete";
         actionsCell.appendChild(deleteButton);
 
         // Add cells to new row
         newRow.appendChild(nameCell);
         newRow.appendChild(countCell);
+        newRow.appendChild(videoCell);
         newRow.appendChild(actionsCell);
 
         // Append new row to the table body
@@ -110,10 +107,13 @@ function addAnimation() {
         // Clear the input fields after adding the row
         document.getElementById("animationNameInput").value = '';
         document.getElementById("categoryCountInput").value = '';
+        animationVideoInput.value = '';
     } else {
-        alert("Please fill in both fields before adding a category.");
+        alert("Please fill in all fields before adding the animation.");
     }
 }
+
+
 function filterCategory() {
     const selectedCategory = document.getElementById("categoryFilter").value.trim();
     const rows = document.querySelectorAll(".table-container tbody tr");

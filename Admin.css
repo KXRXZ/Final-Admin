@@ -202,7 +202,7 @@ body {
 
 .upload-container {
   display: flex;
-  justify-content: space-between;
+  gap: 5px; /* Adjust this value to control the space between the two containers */
   margin-bottom: 20px;
 }
 
@@ -211,7 +211,7 @@ body {
 }
 
 .next-button {
-  position: fixed; /* Fixes position in viewport */
+  position: fixed; 
   bottom: 130px;
   right: 10px;
   padding: 10px 20px;
@@ -242,8 +242,20 @@ body {
 .module-box-container {
   display: flex;
   overflow-x: auto;
-  gap: 15px;
+  gap: 5px;
 }
+.upload-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.upload-button:hover {
+  background-color: #008bff;
+}
+
 
 .upload-header-container,
 .upload-about-container,
@@ -253,13 +265,14 @@ body {
   align-items: center;
   justify-content: center;
   border: 2px dashed #000000;
+  margin-left: 50px;
   border-radius: 8px;
   width: 100%;
   max-width: 600px;
   height: 180px;
   cursor: pointer;
   transition: border-color 0.3s;
-  margin-right: 10px;
+  margin-right: 50px;
 }
 
 .bulletin-board-container {
@@ -273,7 +286,7 @@ body {
   height: 180px;
   cursor: pointer;
   transition: border-color 0.3s;
-  margin-right: 10px;
+  margin-right: 3px;
 }
 
 .upload-header-container:hover,
@@ -398,10 +411,10 @@ input[type="file"] {
 /* Action Buttons Styles */
 
 .actions button {
-  padding: 6px 10px;  /* Smaller padding */
+  padding: 6px 10px;  
   background-color: #0056b3;
   color: white;
-  font-size: 12px;  /* Smaller font size */
+  font-size: 12px;  
   font-weight: bold;
   border: none;
   border-radius: 6px;
@@ -409,7 +422,7 @@ input[type="file"] {
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   display: inline-flex;
   align-items: center;
-  margin-right: 8px;  /* Slightly reduced margin */
+  margin-right: 8px;  
 }
 
 .actions button:hover {
@@ -428,12 +441,12 @@ input[type="file"] {
 }
 
 .actions button span {
-  margin-right: 4px;  /* Reduced space between icon and text */
+  margin-right: 4px;  
 }
 
 .actions button .icon {
-  font-size: 16px;  /* Smaller icon size */
-  margin-right: 6px;  /* Space between icon and text */
+  font-size: 16px;  
+  margin-right: 6px;  
 }
 
 
@@ -443,8 +456,8 @@ input[type="file"] {
   margin-top: 20px;
   display: flex;
   gap: 10px;
-  justify-content: flex-end; /* Aligns content to the right */
-  align-items: flex-start;  /* Aligns items at the top (optional) */
+  justify-content: flex-end; 
+  align-items: flex-start;  
 }
 
 .animation-addition input, 
