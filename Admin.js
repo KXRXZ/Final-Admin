@@ -26,30 +26,23 @@ function showEditInterface() {
 
 // Show the Latest Interface section and hide others
 function showLatestInterface() {
-    console.log("Show Latest Interface");
-    document.querySelector('.dashboard-content').style.display = 'none';
-    document.querySelector('.edit-content').style.display = 'none';
-    document.querySelector('.latest-content').style.display = 'block';
-    document.getElementById('dashboardHeader').innerText = 'Latest Interface';
+    document.getElementById('dashboard-content').style.display = 'none';
+    document.getElementById('edit-content').style.display = 'none';
+    document.getElementById('latest-content').style.display = 'block';
 }
 
-// Toggle main module visibility in Edit Interface
 function toggleMainModule(moduleId) {
-    console.log("Toggle module:", moduleId);
-    const selectedModule = document.getElementById(moduleId);
-    
-    if (!selectedModule) {
-        console.error("Module not found:", moduleId);
-        return;
-    }
+    console.log("Toggling module:", moduleId);
+    // Hide all sections
+    const modules = document.querySelectorAll('.main-admin-module');
+    modules.forEach(module => {
+        module.style.display = 'none';
+    });
 
-    if (selectedModule.style.display === 'block') {
-        selectedModule.style.display = 'none';
-    } else {
-        const allModules = document.querySelectorAll('.main-admin-module');
-        allModules.forEach(module => {
-            module.style.display = 'none';
-        });
+    // Show the selected section
+    const selectedModule = document.getElementById(moduleId);
+    if (selectedModule) {
+        console.log("Showing module:", moduleId);
         selectedModule.style.display = 'block';
     }
 }
@@ -107,12 +100,14 @@ function addAnimation() {
         // Clear the input fields after adding the row
         document.getElementById("animationNameInput").value = '';
         document.getElementById("categoryCountInput").value = '';
+        
+        // Reset the file label and clear file input
+        document.getElementById("fileLabel").textContent = "No file chosen";
         animationVideoInput.value = '';
     } else {
         alert("Please fill in all fields before adding the animation.");
     }
 }
-
 
 function filterCategory() {
     const selectedCategory = document.getElementById("categoryFilter").value.trim();
@@ -129,8 +124,7 @@ function filterCategory() {
         }
     });
 }
-
-
+/* hindi pa ginagamit
 // d2 add function sa next button 
 function loadNextModule() {
     const currentPage = document.getElementById("pageIndicator").innerText;
@@ -146,13 +140,14 @@ function loadNextModule() {
         document.getElementById("page2Content").style.display = 'none';
         document.getElementById("pageIndicator").innerText = "Page 1 of 2";
     }
-}
+} */
+
 function triggerUpload() {
     document.getElementById('fileInput').click();
 }
 
-document.getElementById('fileInput').addEventListener('change', function() {
-    if (this.files.length > 0) {
-        alert('File selected: ' + this.files[0].name);
-    }
+// Update label when a file is chosen
+document.getElementById("animationVideoInput").addEventListener("change", function() {
+    const fileName = this.files[0] ? this.files[0].name : "No file chosen";
+    document.getElementById("fileLabel").textContent = fileName;
 });
